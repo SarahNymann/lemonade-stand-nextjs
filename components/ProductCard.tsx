@@ -1,3 +1,7 @@
+"use client";
+
+import { useCart } from "@/context/CartContext";
+
 type Drink = {
     idDrink: string;
     strDrink: string;
@@ -10,6 +14,8 @@ type Drink = {
   };
   
   export default function ProductCard({ drink }: ProductCardProps) {
+    const { addToCart } = useCart();
+
     return (
       <article className="bg-white rounded-xl shadow-md overflow-hidden p-4">
         <img
@@ -25,7 +31,15 @@ type Drink = {
         </p>
   
         <div className="text-end">
-          <button className="bg-pink-950 text-yellow-100 px-4 py-2 rounded-xl hover:opacity-90">
+          <button 
+          onClick={()=>
+            addToCart({
+              idDrink: drink.idDrink,
+              strDrink: drink.strDrink,
+              strDrinkThumb: drink.strDrinkThumb,
+            })
+          }
+          className="bg-pink-950 text-yellow-100 px-4 py-2 rounded-xl hover:opacity-90">
             Tilføj til kurv
           </button>
         </div>
