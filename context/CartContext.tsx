@@ -9,9 +9,14 @@ type CartItem = {
   quantity: number;
 };
 
+type CartProduct = Omit<CartItem, "quantity">;
+
 type CartContextType = {
   cart: CartItem[];
-  addToCart: (product: Omit<CartItem, "quantity">) => void;
+  addToCart: (product: CartProduct) => void;
+  increaseQuantity: (idDrink: string) => void;
+  decreaseQuantity: (idDrink: string) => void;
+  removeFromCart: (idDrink: string) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -19,7 +24,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  function addToCart(product: Omit<CartItem, "quantity">) {
+  function addToCart(product: CartProduct) {
     setCart((prevCart) => {
       const existingItem = prevCart.find(
         (item) => item.idDrink === product.idDrink
@@ -37,8 +42,44 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }
 
+  function increaseQuantity(idDrink: string) {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.idDrink === idDrink
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+
+  function decreaseQuantity(idDrink: string) {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.idDrink === idDrink
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  }
+
+  function removeFromCart(idDrink: string) {
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.idDrink !== idDrink)
+    );
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        increaseQuantity,
+        decreaseQuantity,
+        removeFromCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

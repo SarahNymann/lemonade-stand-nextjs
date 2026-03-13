@@ -28,6 +28,9 @@ export default function CartPage() {
                 <h2 className="text-lg font-semibold">{item.strDrink}</h2>
                 <p className="text-sm text-gray-600">Antal: {item.quantity}</p>
               </div>
+
+              {/* <button>-</button>
+              <button>+</button> */}
             </article>
           ))}
         </div>
