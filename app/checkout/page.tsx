@@ -11,7 +11,7 @@ export default function CheckoutPage() {
         }
 
     return (
-        <section className="max-w-2xl mx-auto p-6">
+        <section className="max-w-6xl mx-auto p-8 mt-12">
             <h1 className="text-3xl font-bold mb-6">Checkout</h1>
 
             <div className="divide-y">

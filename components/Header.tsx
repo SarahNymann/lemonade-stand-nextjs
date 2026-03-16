@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <header className="bg-pink-950 p-8">
-            <nav className="max-w-6xl mx-auto flex justify-between items-center">
+        <header className="bg-pink-950">
+            <nav className="max-w-6xl mx-auto p-8 flex justify-between items-center">
 
                     <Link href="/" className="text-xl font-bold text-yellow-100">
                     🍋 Lemonade Stand
@@ -11,7 +11,7 @@ export default function Header() {
 
                 <div className="flex gap-6">
                     <Link href="/" className="text-yellow-100 hover:text-yellow-200">
-                    Home
+                    Forside
                     </Link>
 
                     <Link href="/shop" className="text-yellow-100 hover:text-yellow-200">
@@ -19,7 +19,7 @@ export default function Header() {
                     </Link>
 
                     <Link href="/cart" className="text-yellow-100 hover:text-yellow-200">
-                    Cart
+                    Kurv
                     </Link>                    
                 </div>
                

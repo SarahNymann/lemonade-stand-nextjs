@@ -8,8 +8,8 @@ export default function CartPage() {
   const { cart } = useCart();
 
   return (
-    <section className="p-6">
-      <h1 className="mb-6 text-3xl font-bold">Din kurv</h1>
+    <section className="max-w-6xl mx-auto p-8 mt-12">
+      <h1 className="text-3xl font-bold mb-6">Din kurv</h1>
 
       {cart.length === 0 ? (
         <p>Din kurv er tom.</p>

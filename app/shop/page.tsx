@@ -22,7 +22,7 @@ export default function Shop() {
   }, []);
 
   return (
-    <main className="max-w-6xl mx-auto p-8">
+    <main className="max-w-6xl mx-auto p-8 mt-12">
       <h1 className="text-3xl font-bold mb-6">Shop</h1>
       <ProductList drinks={drinks} />
     </main>
