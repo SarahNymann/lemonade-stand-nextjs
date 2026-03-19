@@ -14,12 +14,11 @@ export default function ProfitCounter() {
     } 
 
     return (
-        <section className="">
-            <h2>Lemonade Stand</h2>
+        <section className="flex flex-col items-center p-6">
 
-            <p>Profit: {profit} DKK</p>
+            <h2 className="text-xl font-semibold">Profit: {profit} DKK</h2>
 
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3 mt-6">
             <button
                 onClick={buyLemonade}
                 className="border-2 border-pink-950 text-pink-950 px-4 py-2 rounded-full"

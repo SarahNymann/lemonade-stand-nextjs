@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <header className="bg-pink-950">
-            <nav className="max-w-6xl mx-auto p-8 flex justify-between items-center">
+        <header className="bg-pink-950 h-20">
+            <nav className="max-w-6xl mx-auto h-full px-8 flex justify-between items-center">
 
                     <Link href="/" className="text-xl font-bold text-yellow-100">
                     🍋 Lemonade Stand
