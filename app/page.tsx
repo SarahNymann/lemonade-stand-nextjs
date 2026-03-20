@@ -37,7 +37,7 @@ export default function Home() {
 
 
               <div className="flex justify-center">
-                <div className="w-full max-w-lg rounded-2xl border border-yellow-200 bg-white p-6 shadow-lg">
+                <div className="w-full max-w-lg rounded-2xl bg-white shadow-lg">
                   <ProfitCounter />
                 </div>
               </div>
