@@ -28,10 +28,8 @@ export default function Shop() {
           <h1 className="text-4xl md:text-5xl leading-tight text-pink-950 mb-12">Shop</h1>
           
           <ProductList drinks={drinks} />
-          
-        </section>
 
-      
+        </section>
     </main>
   );
 }
