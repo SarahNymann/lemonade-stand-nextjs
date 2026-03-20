@@ -1,6 +1,8 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import SecondaryButton from "./SecondaryButton";
+import { Trash2 } from "lucide-react";
 
 type CartItemProps = {
     item: {
@@ -15,42 +17,45 @@ export default function CartItem({ item }: CartItemProps) {
     const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
   
     return (
-         <article className="flex items-center gap-4 rounded-xl border bg-white p-4 shadow-sm">
+         <article className="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm">
                 <img
                   src={item.strDrinkThumb}
                   alt={item.strDrink}
-                  className="h-24 w-24 rounded-lg object-cover"
+                  className="h-32 w-32 rounded-lg object-cover"
                 />
   
-                <div>
-                  <h2 className="text-lg font-semibold">{item.strDrink}</h2>
-                  <p className="text-sm text-gray-600 mt-1">Antal:</p>
+                <div className="ml-4">
+                  <h2 className="text-lg text-gray-700 font-semibold">{item.strDrink}</h2>
+                  <p className="text-sm text-gray-700 mt-4">Antal:</p>
                   
                   <div className="flex items-center gap-2 mt-2">
                     <button
-                      className="rounded-md border px-3 py-1 text-lg hover:bg-gray-100"
+                      className="h-8 w-8 rounded-full border border-pink-950 text-pink-950 hover:bg-yellow-100 transition flex items-center justify-center cursor-pointer"
                       onClick={() => decreaseQuantity(item.idDrink)}
-                      >
-                        -
-                      </button>
+                    >
+                      -
+                    </button>
   
-                    <span>{item.quantity}</span>
+                    <span className="text-pink-950 font-semibold">{item.quantity}</span>
   
                     <button
-                      className="rounded-md border px-3 py-1 text-lg hover:bg-gray-100"
+                      className="h-8 w-8 rounded-full border border-pink-950 text-pink-950 hover:bg-yellow-100 transition flex items-center justify-center cursor-pointer"       
                       onClick={() => increaseQuantity(item.idDrink)}
-                      >
-                        +
-                      </button>
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
-  
-                <button
-                  className="ml-4 rounded-md bg-red-500 px-3 py-1 text-white hover:bg-red-600"
+
+                <div className="ml-auto mr-4 mt-18">
+                  <SecondaryButton
                   onClick={() => removeFromCart(item.idDrink)}
-                >
-                  Fjern fra kurv
-                </button>              
+                  >
+                    <Trash2 size={18} />
+                    Fjern fra kurv
+                  </SecondaryButton> 
+                </div>
+                             
         </article>
     );
 }
