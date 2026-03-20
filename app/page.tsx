@@ -1,6 +1,5 @@
 import ProfitCounter from "@/components/ProfitCounter";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,7 +24,7 @@ export default function Home() {
           <div className="w-full rounded-3xl bg-gradient-to-br from-yellow-200 to-yellow-50 p-8 shadow-2xl backdrop-blur-sm md:p-10">
             
             <div className="mt-10 mb-8">
-              <h1 className="text-5xl font-extrabold leading-tight text-pink-950 text-center mb-6">
+              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-pink-950 text-center mb-6">
                 Velkommen til <br />
                 Lemonade Stand
               </h1>
