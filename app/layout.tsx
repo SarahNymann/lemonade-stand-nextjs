@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Pacifico } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
@@ -10,10 +10,12 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const pacifico = Pacifico({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pacifico",
 });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="da">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${pacifico.variable} antialiased`}
       >
         <CartProvider>
           <Header />

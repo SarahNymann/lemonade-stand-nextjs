@@ -1,6 +1,7 @@
 import ProfitCounter from "@/components/ProfitCounter";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     <main className="relative h-[calc(100vh-80px)] overflow-hidden">
