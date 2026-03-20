@@ -10,7 +10,7 @@ export default function CartPage() {
 
   return ( 
       <main className="max-w-6xl mx-auto p-8 mt-10">
-          <section className="bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-3xl p-10 mb-10">
+          <section className="bg-gradient-to-br from-yellow-200 to-yellow-100 rounded-3xl p-10 mb-10">
       
             <h1 className="text-4xl md:text-5xl leading-tight text-pink-950 mb-10">Din kurv</h1>
       
@@ -39,9 +39,12 @@ export default function CartPage() {
               </div>
 
               <div className="mt-6 flex justify-end">
-                <PrimaryButton>
-                    Gå til checkout
-                </PrimaryButton>
+                <Link href="/checkout">
+                  <PrimaryButton>
+                      Gå til checkout
+                  </PrimaryButton>
+                </Link>
+                
               </div>
               </>
               

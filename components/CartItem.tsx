@@ -26,7 +26,7 @@ export default function CartItem({ item }: CartItemProps) {
   
                 <div className="ml-4">
                   <h2 className="text-lg text-gray-700 font-semibold">{item.strDrink}</h2>
-                  <p className="text-sm text-gray-700 mt-4">Antal:</p>
+                  <p className="text-md text-gray-700 mt-4">Antal:</p>
                   
                   <div className="flex items-center gap-2 mt-2">
                     <button

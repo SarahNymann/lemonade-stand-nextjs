@@ -2,50 +2,71 @@
 
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import PrimaryButton from "@/components/PrimaryButton";
+import SecondaryButton from "@/components/SecondaryButton";
 
 export default function CheckoutPage() {
     const { cart } = useCart();
 
     if (cart.length === 0) {
-        return <p>Din kurv er tom.</p>;
+        return <>
+        <main className="max-w-6xl mx-auto p-8 mt-10">
+          <section className="bg-gradient-to-br from-yellow-200 to-yellow-100 rounded-3xl p-10 mb-10">
+            <h1 className="text-4xl md:text-5xl leading-tight text-pink-950 mb-10">Din kurv</h1>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Din kurv er tom lige nu. <br></br>Gå til shoppen og find dine favoritdrinks.
+              </p>
+
+              <div className="mt-6 flex justify-end">
+                <Link href="/shop">
+                  <PrimaryButton>
+                      Gå til shoppen
+                  </PrimaryButton>
+                </Link>
+              </div>
+        </section>
+      </main>
+        </>
         }
 
     return (
-        <section className="max-w-6xl mx-auto p-8 mt-12">
-            <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+      <main className="max-w-6xl mx-auto p-8 mt-10">
+        <section className="bg-gradient-to-br from-yellow-200 to-yellow-50 rounded-3xl p-10 mb-10">
+          <h1 className="text-4xl md:text-5xl leading-tight text-pink-950 mb-10">Checkout</h1>
 
-            <div className="divide-y">
-            {cart.map((item) => (
-              <article
-                key={item.idDrink}
-                className="flex items-center justify-between p-4"
-              >
-                <img
-                  src={item.strDrinkThumb}
-                  alt={item.strDrink}
-                  className="h-24 w-24 rounded-lg object-cover"
-                />
+            <div className="divide-y space-y-8 lex flex-col sm:flex-row gap-3 mt-6 w-full justify-center">
+              {cart.map((item) => (
+                <article
+                  key={item.idDrink}
+                  className="flex items-center gap-8 p-4"
+                >
+                  <img
+                    src={item.strDrinkThumb}
+                    alt={item.strDrink}
+                    className="h-32 w-32 rounded-lg object-cover"
+                  />
 
-                <div>
-                  <h2 className="text-lg font-semibold">{item.strDrink}</h2>
-                  <p className="text-sm text-gray-600">Antal: {item.quantity}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+                  <div>
+                    <h2 className="text-lg text-pink-950 font-semibold">{item.strDrink}</h2>
+                    <p className="text-md text-pink-950">Antal: {item.quantity}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
 
           <div className="mt-8 flex justify-end gap-3">
-            <Link
-              href="/cart"
-              className="rounded-full border-2 border-pink-950 px-4 py-2 text-pink-950 transition hover:bg-yellow-100"
-            >
-              Tilbage til kurv
+            <Link href="/cart">
+              <SecondaryButton>
+                Tilbage til kurv
+              </SecondaryButton>
             </Link>
 
-            <button className="rounded-full bg-pink-950 text-yellow-100 px-4 py-2 hover:opacity-90">
-            Bestil drinks
-          </button>
+            <PrimaryButton>
+              Bestil drinks
+            </PrimaryButton>
           </div>
+
         </section>
+      </main>
     )
 }
