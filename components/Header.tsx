@@ -3,11 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useCart } from "@/context/CartContext";
 import { ShoppingBag, ShoppingCart, Menu, X } from "lucide-react";
 
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className="bg-pink-950">
@@ -39,10 +43,15 @@ export default function Header() {
 
           <Link
             href="/cart"
-            className="inline-flex items-center gap-2 text-yellow-100 hover:text-yellow-200 transition"
+            className="relative inline-flex items-center gap-2 text-yellow-100 hover:text-yellow-200 transition"
           >
             <ShoppingCart size={18} />
             Kurv
+            {totalItems > 0 && (
+              <span className="absolute -top-3 -right-5 bg-yellow-200 text-pink-950 text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+              {totalItems}
+            </span>
+            )}
           </Link>
         </div>
 
