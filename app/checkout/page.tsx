@@ -38,7 +38,7 @@ export default function CheckoutPage() {
               {cart.map((item) => (
                 <article
                   key={item.idDrink}
-                  className="flex items-center gap-8 p-4"
+                  className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-8 p-4"
                 >
                   <img
                     src={item.strDrinkThumb}
@@ -46,7 +46,7 @@ export default function CheckoutPage() {
                     className="h-32 w-32 rounded-lg object-cover"
                   />
 
-                  <div>
+                  <div className="text-center sm:text-left">
                     <h2 className="text-lg text-pink-950 font-semibold">{item.strDrink}</h2>
                     <p className="text-md text-pink-950">Antal: {item.quantity}</p>
                   </div>
@@ -54,16 +54,18 @@ export default function CheckoutPage() {
               ))}
             </div>
 
-          <div className="mt-8 flex justify-end gap-3">
-            <Link href="/cart">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:justify-end">
+            <Link href="/cart" className="">
               <SecondaryButton>
                 Tilbage til kurv
               </SecondaryButton>
             </Link>
-
+          <div className="">
             <PrimaryButton>
               Bestil drinks
             </PrimaryButton>
+          </div>
+            
           </div>
 
         </section>

@@ -32,20 +32,20 @@ export default function CartPage() {
 
             ) : (
               <> {/* Bruger et Fragment (<> </>) til at samle flere elementer uden at tilføje en ekstra <div> i HTML. */}
-              <div className="space-y-8">
-                {cart.map((item) => (
-                  <CartItem key={item.idDrink} item={item} />
-                  ))}
-              </div>
+                <div className="space-y-8">
+                  {cart.map((item) => (
+                    <CartItem key={item.idDrink} item={item} />
+                    ))}
+                </div>
 
-              <div className="mt-6 flex justify-end">
-                <Link href="/checkout">
-                  <PrimaryButton>
-                      Gå til checkout
-                  </PrimaryButton>
-                </Link>
-                
-              </div>
+                <div className="mt-6 flex justify-end">
+                  <Link href="/checkout">
+                    <PrimaryButton>
+                        Gå til checkout
+                    </PrimaryButton>
+                  </Link>
+                  
+                </div>
               </>
               
             )}
